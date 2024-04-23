@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I'm Sorry</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffd6f4; /* Light pink background */
+      text-align: center;
+      overflow: hidden; /* Hide overflow to prevent horizontal scrolling */
+    }
+    .container {
+      position: relative; /* Make container relative for absolute positioning of hearts */
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9); /* White background with transparency */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #ff69b4; /* Pink color for headings */
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333; /* Dark text color */
+    }
+    a {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #ff69b4; /* Pink button background */
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    a:hover {
+      background-color: #ff1493; /* Darker pink on hover */
+    }
+    .apology {
+      display: none;
+    }
+    .show {
+      display: block;
+    }
+    /* Animation for flying hearts */
+    @keyframes flying-hearts {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        transform: translate(50vw, 50vh) rotate(180deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(100vw, 0) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    .heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      color: red;
+      font-size: 30px;
+      animation: flying-hearts 8s linear infinite;
+      animation-delay: calc(var(--delay) * -1s);
+    }
+    .heart:nth-child(2) {
+      width: 40px;
+      height: 40px;
+      animation-duration: 10s;
+    }
+    .heart:nth-child(3) {
+      width: 35px;
+      height: 35px;
+      animation-duration: 9s;
+    }
+    .heart:nth-child(4) {
+      width: 45px;
+      height: 45px;
+      animation-duration: 11s;
+    }
+    .heart:nth-child(5) {
+      width: 25px;
+      height: 25px;
+      animation-duration: 7s;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sorry, Tanu</h1>
+    <p>I want to apologize for my mistakes. Please forgive me.</p>
+    <a href="#" onclick="showApology(1)">Apology 1</a>
+    <a href="#" onclick="showApology(2)">Apology 2</a>
+    <a href="#" onclick="showApology(3)">Apology 3</a>
+    <a href="#" onclick="showApology(4)">Apology 4</a>
+  </div>
+
+  <!-- Apology 1 -->
+  <div id="apology1" class="container apology">
+    <h1>Apology 1</h1>
+    <p>I'm sorry for what happened. I promise to learn from this mistake.</p>
+    <a href="#" onclick="hideApologies()">Go Back</a>
+  </div>
+
+  <!-- Apology 2 -->
+  <div id="apology2" class="container apology">
+    <h1>Apology 2</h1>
+    <p>I deeply regret my actions and the pain they caused you. Please forgive me.</p>
+    <a href="#" onclick="hideApologies()">Go Back</a>
+  </div>
+
+  <!-- Apology 3 -->
+  <div id="apology3" class="container apology">
+    <h1>Apology 3</h1>
+    <p>I understand the hurt I've caused, and I'm truly sorry. I'll do better.</p>
+    <a href="#" onclick="hideApologies()">Go Back</a>
+  </div>
+
+  <!-- Apology 4 -->
+  <div id="apology4" class="container apology">
+    <h1>Apology 4</h1>
+    <p>I apologize for my behavior. I value you and our relationship.</p>
+    <a href="#" onclick="hideApologies()">Go Back</a>
+  </div>
+
+  <!-- Flying hearts -->
+  <div class="heart" style="--delay: 1">&#10084;</div>
+  <div class="heart" style="--delay: 2">&#10084;</div>
+  <div class="heart" style="--delay: 3">&#10084;</div>
+  <div class="heart" style="--delay: 4">&#10084;</div>
+  <div class="heart" style="--delay: 5">&#10084;</div>
+
+  <script>
+    function showApology(apologyNumber) {
+      var apologies = document.querySelectorAll('.apology');
+      for (var i = 0; i < apologies.length; i++) {
+        apologies[i].classList.remove('show');
+      }
+      document.getElementById('apology' + apologyNumber).classList.add('show');
+    }
+
+    function hideApologies() {
+      var apologies = document.querySelectorAll('.apology');
+      for (var i = 0; i < apologies.length; i++) {
+        apologies[i].classList.remove('show');
+      }
+    }
+  </script>
+</body>
+</html>
